@@ -13,8 +13,11 @@ export default class World {
 
     draw(context) {
         context.fillStyle = 'green';
-        for (this.x = 0; this.x <= this.gameWidth; this.x += this.tileWidth) {
-            context.fillRect(this.x, this.y, this.tileWidth, this.tileHeight)
+        for (this.y = this.gameHeigth; this.y >= 0; this.y -= this.tileHeight) {
+            console.log(this.y)
+            for (this.x = 0; this.x < this.gameWidth; this.x += this.tileWidth) {
+                context.fillRect(this.x, this.y, this.tileWidth, this.tileHeight)
+            }
         }
     }
 
