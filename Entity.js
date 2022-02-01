@@ -3,8 +3,9 @@ export default class Entity {
         this.gameHeight = canvas.height;
         this.width = 32;
         this.heigth = 64;
+        this.tileHeight = canvas.tileHeight;
         this.x = 0;
-        this.y = this.gameHeight - this.heigth;
+        this.y = this.gameHeight - this.heigth - this.tileHeight;
     }
 
     draw(context) {

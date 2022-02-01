@@ -11,20 +11,13 @@ body {
 #canvas1 {
     border: 3px solid gray;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(2);
+    width: 100%;
+    height: 100%;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
 
-#background {
-    display: none;
-}
 
-#spritesheet {
-    display: none;
-}
 
