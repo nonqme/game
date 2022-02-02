@@ -13,15 +13,12 @@ body {
 }
 
 #canvas1 {
+    background-color: gray;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     transform: scale(3);
-}
-
-#playerIdle {
-    display: none;
 }
 
 

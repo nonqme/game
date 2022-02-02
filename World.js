@@ -1,31 +1,14 @@
-/** @type {CanvasRenderingContext2D} */
-
 export default class World {
-    constructor(canvas) {
-        this.gameWidth = canvas.width;
-        this.gameHeight = canvas.height;
-        this.tileWidth = 30;
-        this.tileHeight = 30; 
-        this.x = 0;
-        this.y = this.gameHeigth - this.tileHeight;
-        this.grid = [];
+    constructor(config) {
+        this.gameObjects = config.gameObjects
+        
+        this.backgroundImage = new Image();
+        this.backgroundImage.src = config.backgroundSrc;
+
     }
 
-    draw(context) {
-        context.fillStyle = 'white'
-        for (this.y = 0; this.y < this.gameHeight; this.y += this.tileHeight) {
-            for (this.x = 0; this.x < this.gameWidth; this.x += this.tileWidth) {
-                if (this.y === this.gameHeight - this.tileHeight) {
-                    context.fillStyle = 'green';
-                }else {
-                    context.fillStyle = 'blue'
-                }
-                context.fillRect(this.x, this.y, this.tileWidth, this.tileHeight)
-            }
-        }
-    }
+    drawBackgroundImage(context) {
+        context.drawImage(this.backgroundImage, 0, 0, this.backgroundImage.width, this.backgroundImage.height);
+    };
 
-    getTileHeight() {
-        return this.tileHeight;
-    }
-}
+};
