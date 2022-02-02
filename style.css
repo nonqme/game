@@ -20,5 +20,8 @@ body {
     transform: scale(3);
 }
 
+#playerIdle {
+    display: none;
+}
 
 

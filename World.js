@@ -15,7 +15,6 @@ export default class World {
         context.fillStyle = 'white'
         for (this.y = 0; this.y < this.gameHeight; this.y += this.tileHeight) {
             for (this.x = 0; this.x < this.gameWidth; this.x += this.tileWidth) {
-                console.log(this.y)
                 if (this.y === this.gameHeight - this.tileHeight) {
                     context.fillStyle = 'green';
                 }else {

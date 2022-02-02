@@ -1,6 +1,6 @@
 /** @type {CanvasRenderingContext2D} */
 
-import Entity from "./Entity.js";
+import Player from "./Player.js";
 import World from "./World.js";
 
 
@@ -17,9 +17,9 @@ export default class GameEngine {
     init() {
         this.context.imageSmoothingEnabled = false;
         let world = new World({ width: this.width, height: this.height});
-        let entity = new Entity({ width: this.width, height: this.height, tileHeight: world.getTileHeight()});
+        let player = new Player({ width: this.width, height: this.height, tileHeight: world.getTileHeight()});
         world.draw(this.context);
-        entity.draw(this.context);
+        player.draw(this.context);
     }
 }
 
