@@ -1,5 +1,6 @@
 import { maps } from "./maps.js";
 import World from "./World.js";
+import InputHandler from "./InputHandler.js";
 
 
 export default class GameEngine {
@@ -14,9 +15,14 @@ export default class GameEngine {
     startGameLoop() {
         const step = () => {
 
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+
             this.map.drawBackgroundImage(this.context);
             
             Object.values(this.map.gameObjects).forEach(object => {
+                object.update({
+                    arrow: this.input.getDirection()
+                });
                 object.sprite.draw(this.context);
             })
 
@@ -31,6 +37,8 @@ export default class GameEngine {
     init() {
         this.context.imageSmoothingEnabled = false;
         this.map = new World(maps.DevRoom);
+        this.input = new InputHandler();
+        this.input.init();
         this.startGameLoop();
 
 

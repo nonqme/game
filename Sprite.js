@@ -20,9 +20,9 @@ export default class Sprite {
     };
 
     draw(context) {
-        const x = this.gameObject.x * 30;
-        const y = this.gameObject.y * 32;
-        this.isLoaded && context.drawImage(this.image, 20, 22, 18, 20, x, y, 30, 32);
+        const x = this.gameObject.x;
+        const y = this.gameObject.y;
+        this.isLoaded && context.drawImage(this.image, 0, 0, 64, 64, x, y, 64, 64);
     };
 
 }
