@@ -21,7 +21,8 @@ export default class GameEngine {
             
             Object.values(this.map.gameObjects).forEach(object => {
                 object.update({
-                    arrow: this.input.getDirection()
+                    arrow: this.input.getDirection(),
+                    action: this.input.getState(),
                 });
                 object.sprite.draw(this.context);
             })

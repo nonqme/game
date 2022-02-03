@@ -4,24 +4,35 @@ export default class Player extends GameObject {
     constructor(config) {
         super(config);
 
+        this.state = "idle"
+
         this.directionUpdate = {
             "right": ['x', 1],
             "left": ['x', -1],
-            "idle": ['x', 0],
         };
     }
 
     update(state) {
         this.updatePosition();
+        this.updateSprite(state)
 
         if (state.arrow) {
             this.direction = state.arrow;
+            this.state = state.action;
         }
     }
 
     updatePosition() {
-        const [property, change] = this.directionUpdate[this.direction];
-
-        this[property] += change;
+        if (this.state === "run") {
+            const [property, change] = this.directionUpdate[this.direction];
+    
+            this[property] += change;
+        }
     }
+
+    updateSprite(state) {
+        console.log(this.state+this.direction)
+        this.sprite.setAnimation(this.state+"-"+this.direction)
+    }
+
 }
