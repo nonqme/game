@@ -1,3 +1,5 @@
+import { utils } from "./utils.js";
+
 export default class Sprite {
     constructor(config) {
 
@@ -63,10 +65,10 @@ export default class Sprite {
         }
     }
 
-    draw(context) {
-        const x = this.gameObject.x;
-        const y = this.gameObject.y;
+    draw(context, camera) {
 
+        let x = this.gameObject.x + utils.grid(4) - camera.x;
+        let y = this.gameObject.y + utils.grid(4.5) - camera.y
         const [frameX, frameY] = this.getFrame();
 
         this.isLoaded && context.drawImage(this.image, frameX * 64, frameY * 64, 64, 64, x, y, 64, 64);

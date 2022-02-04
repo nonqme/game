@@ -14,6 +14,9 @@ export default class GameObject {
     };
     
     update() {
-        
+        this.updateSprite()
+    }
+    updateSprite() {
+        this.sprite.setAnimation("idle-"+this.direction)
     }
 };

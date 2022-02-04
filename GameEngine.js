@@ -17,16 +17,21 @@ export default class GameEngine {
 
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
-            this.map.drawBackgroundImage(this.context);
+            const camera = this.map.gameObjects.player;
+
+            this.map.drawBackgroundImage(this.context, camera);
             
             Object.values(this.map.gameObjects).forEach(object => {
                 object.update({
                     arrow: this.input.getDirection(),
                     action: this.input.getState(),
                 });
-                object.sprite.draw(this.context);
             })
 
+
+            Object.values(this.map.gameObjects).forEach(object => {
+                object.sprite.draw(this.context, camera);
+            })
 
             requestAnimationFrame(() => {
                 step();
@@ -37,6 +42,7 @@ export default class GameEngine {
 
     init() {
         this.context.imageSmoothingEnabled = false;
+        this.context.sca
         this.map = new World(maps.DevRoom);
         this.input = new InputHandler();
         this.input.init();

@@ -31,7 +31,6 @@ export default class Player extends GameObject {
     }
 
     updateSprite(state) {
-        console.log(this.state+this.direction)
         this.sprite.setAnimation(this.state+"-"+this.direction)
     }
 
