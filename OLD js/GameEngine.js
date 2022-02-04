@@ -1,6 +1,6 @@
-import { maps } from "./maps.js";
-import World from "./World.js";
-import InputHandler from "./InputHandler.js";
+import { maps } from "../maps.js";
+import World from "../World.js";
+import InputHandler from "../InputHandler.js";
 
 
 export default class GameEngine {
@@ -42,7 +42,6 @@ export default class GameEngine {
 
     init() {
         this.context.imageSmoothingEnabled = false;
-        this.context.sca
         this.map = new World(maps.DevRoom);
         this.input = new InputHandler();
         this.input.init();
