@@ -1,38 +1,29 @@
-export const states = {
-    STANDING_RIGHT: 0,
-    STANDING_LEFT: 1,
-};
+export default class StateHandler {
+    constructor() {
+        this.input = '';
+        this._state = '';
+    };
+    setState(input, person) {
+        person.x += person.speed
 
-class State {
-    constructor(state) {
-        this.state = state;
+        if (input.keys.indexOf('ArrowRight') > -1 ) {
+
+            person.speed = 0.6;
+            person.lastDirection = 'right';
+            person.currentState = 'run-right';
+
+        }else if (input.keys.indexOf('ArrowLeft') > -1 ) {
+
+            person.speed = -0.6;
+            person.lastDirection = 'left';
+            person.currentState = 'run-left';
+
+        } else {
+            person.animationSpeed = 12;
+            person.speed = 0;
+            if (person.lastDirection === 'right') person.currentState = 'idle-right';
+            if (person.lastDirection === 'left') person.currentState = 'idle-left';
+
+        }
     }
-};
-
-class StandingRight extends State {
-    constructor(gameObject) {
-        super('STANDING RIGHT');
-        this.gameObject = gameObject;
-    };
-
-    enter() {
-
-    };
-    handleInput(input) {
-
-    };
-}
-
-class StandingLeft extends State {
-    constructor(gameObject) {
-        super('STANDING LEFT');
-        this.gameObject = gameObject;
-    };
-
-    enter() {
-
-    };
-    handleInput() {
-
-    };
 }

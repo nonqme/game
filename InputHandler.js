@@ -1,28 +1,18 @@
 export default class InputHandler {
     constructor() {
 
-        this.key = '';
+        this.keys = [];
 
         window.addEventListener('keydown', (e) => {
-            switch(e.key) {
-                case 'ArrowLeft':
-                    this.key = 'Press left';
-                    break
-                case 'ArrowRight':
-                    this.key = 'Press right';
-                    break
-            }
+            if (( e.key === 'ArrowLeft' || e.key === 'ArrowRight') && this.keys.indexOf(e.key) === -1) {
+                this.keys.push(e.key);
+            };
         });
 
         window.addEventListener('keyup', (e) => {
-            switch(e.key) {
-                case 'ArrowLeft':
-                    this.key = 'Release left';
-                    break
-                case 'ArrowRight':
-                    this.key = 'Release right';
-                    break
-            }
+            if ( e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                this.keys.splice(this.keys.indexOf(e.key), 1);
+            };
         });
 
     }

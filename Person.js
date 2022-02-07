@@ -5,11 +5,15 @@ export default class Person extends GameObject {
 
         super(config);
 
-        this.speed = config.speed || 10;
+        this.speed = 0;
 
     }
     
     update() {
-        console.log(this)
+        this.updateSprite()
+    }
+
+    updateSprite() {
+        this.sprite.setAnimation(this.currentState)
     }
 }
