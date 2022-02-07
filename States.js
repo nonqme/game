@@ -4,8 +4,6 @@ export default class StateHandler {
         this._state = '';
     };
     setState(input, person) {
-        person.x += person.speed
-
         if (input.keys.indexOf('ArrowRight') > -1 ) {
 
             person.speed = 0.6;

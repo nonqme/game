@@ -5,7 +5,7 @@ export const canvasConfig = {
 };
 
 export const gameObjectConfig = {
-    x: 0,
+    x: 30,
     y: 0,
     width: 64,
     height: 64,
@@ -31,7 +31,7 @@ export const gameObjectConfig = {
             [0,5],[1,5],[2,5],[3,5],[4,5],[5,5],[6,5],[7,5]
         ],
     },
-    currentState: 'idle-right',
+    currentState: 'idle-left',
 };
 
 export const personConfig = {

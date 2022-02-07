@@ -15,13 +15,23 @@ export default class GameObject {
         this.currentState = config.currentState || 'idle-right';
 
         this.scale = config.scale || 1;
-
         this.sprite = new Sprite({
             gameObject: this,
             src: config.src || "/assets/Sprites/hobbit.png",
             animations: config.animations,
             currentAnimation: this.currentState,
         });
+    }
 
+    update() {
+        this.updateSprite()
+    }
+
+    updateSprite() {
+        this.sprite.setAnimation(this.currentState)
+    }
+
+    updatePosition() {
+        
     }
 }

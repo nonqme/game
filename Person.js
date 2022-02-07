@@ -6,6 +6,7 @@ export default class Person extends GameObject {
         super(config);
 
         this.speed = 0;
+        this.lastDirection = '';
 
     }
     
@@ -15,5 +16,9 @@ export default class Person extends GameObject {
 
     updateSprite() {
         this.sprite.setAnimation(this.currentState)
+    }
+
+    updatePosition() {
+        this.x += this.speed;
     }
 }

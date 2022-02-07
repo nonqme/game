@@ -41,9 +41,8 @@ export default class Sprite {
     }
 
     draw(context) {
-
-        let x = this.gameObject.x 
-        let y = this.gameObject.y
+        let x = this.gameObject.x;
+        let y = this.gameObject.y;
         
         const [frameX, frameY] = this.frame;
 
@@ -72,9 +71,4 @@ export default class Sprite {
             this.currentAnimationFrame = 0;
         }
     }
-
-    setAnimationSpeed(frame) {
-        this.animationFrameLimit = frame;
-    }
-
 }
